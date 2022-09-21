@@ -7,9 +7,10 @@
 <script lang="ts" setup>
 import { onMounted } from 'vue';
 import { init } from '../utils/Engine';
+import { createGround, createCan, createHouse } from '../utils/CustomeFn';
 onMounted(() => {
 	console.log('mounted');
-	init('renderCanvas');
+	init('renderCanvas', createHouse);
 });
 </script>
 
