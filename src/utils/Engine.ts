@@ -25,3 +25,18 @@ export function init(id:string, cb: Function):void {
     });
 }
 
+
+export function initFn(id:string, cb:Function):void {
+    const canvas: HTMLCanvasElement = document.getElementById(id) as HTMLCanvasElement
+    const engine :Engine = new BABYLON.Engine(canvas, true)
+    const scene:Scene = cb(engine, canvas)
+    // Register a render loop to repeatedly render the scene
+    engine.runRenderLoop(function () {
+        scene.render();
+    });
+
+    // Watch for browser/canvas resize events
+    window.addEventListener("resize", function () {
+        engine.resize();
+    });
+}

@@ -6,17 +6,20 @@
 
 <script lang="ts" setup>
 import { onMounted } from 'vue';
-import { init } from '../utils/Engine';
-import { createGround, createCan, createHouse } from '../utils/CustomeFn';
+import { init, initFn } from '../utils/Engine';
+import { createGround, createCan, createHouse } from '../utils/CustomeFn-9-23';
+import { createParentAndChild } from '../utils/ParentAndChild';
+import { createScene } from '../utils/ParentAndPivot';
 onMounted(() => {
 	console.log('mounted');
-	init('renderCanvas', createHouse);
+	initFn('renderCanvas', createScene);
+	// init('renderCanvas', createParentAndChild);
 });
 </script>
 
 <style lang="scss" scoped>
 .box {
-	width: 500px;
+	width: 100%;
 	height: 500px;
 	canvas {
 		width: 100%;

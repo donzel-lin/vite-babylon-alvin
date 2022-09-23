@@ -47,11 +47,11 @@ export function createHouse(scene:Scene):void {
     const ground = buildGround()
     ground.material = groundMat
 
-    const box :Mesh= buildBox()
-    const boxMat = buildStandardMaterial('boxMat')
-    const boxTexture = buildTexture('boxTexture', 'https://www.babylonjs-playground.com/textures/floor.png')
-    boxMat.diffuseTexture = boxTexture
-    box.material = boxMat
+    const box :Mesh= buildBox(2)
+    // const boxMat = buildStandardMaterial('boxMat')
+    // const boxTexture = buildTexture('boxTexture', 'https://www.babylonjs-playground.com/textures/floor.png')
+    // boxMat.diffuseTexture = boxTexture
+    // box.material = boxMat
 
 
     const roof:Mesh = buildRoof()
@@ -76,8 +76,35 @@ function buildGround(): GroundMesh {
     const ground:GroundMesh = BABYLON.MeshBuilder.CreateGround('ground', { width: 10, height: 10,})
     return ground
 }
+
+const buildBox = (width:number) :Mesh => {
+    const boxMat = new BABYLON.StandardMaterial('boxMat')
+    const faceUV:Vector4[] = []
+    if(width === 2) {
+        boxMat.diffuseTexture = new BABYLON.Texture('https://assets.babylonjs.com/environments/semihouse.png')
+        faceUV[0] = new BABYLON.Vector4(0.6,0,1,1)
+        faceUV[1] = new BABYLON.Vector4(0,0,0.4,1)
+        faceUV[2] = new BABYLON.Vector4(0.4,0,0.6,1)
+        faceUV[3] = new BABYLON.Vector4(0.4,0,0.6,1)
+    } else {
+        boxMat.diffuseTexture = new BABYLON.Texture('https://assets.babylonjs.com/environments/cubehouse.png')
+        faceUV[0] = new BABYLON.Vector4(0,0,0.25,1)
+        faceUV[1] = new BABYLON.Vector4(0.5,0,0.75,1)
+        faceUV[2] = new BABYLON.Vector4(0.25,0,0.5,1)
+        faceUV[3] = new BABYLON.Vector4(0.75,0,1,1)
+    }
+    
+    const box :Mesh = BABYLON.CreateBox('box', {
+        width,
+        faceUV,
+        wrap: true
+    })
+    box.material = boxMat
+    box.position.y = 0.5
+    return box
+}
 // box
-function buildBox() :Mesh {
+function _buildBox() :Mesh {
     // 创建box，三种方法都可以设置x,y,z
     // const box = BABYLON.CreateBox('box', { width: 2, height: 1.5, depth: 3})
     const box = BABYLON.CreateBox('box', {}) // 给的默认大小，1,1,1
