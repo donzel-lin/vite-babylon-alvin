@@ -7,12 +7,14 @@
 <script lang="ts" setup>
 import { onMounted } from 'vue';
 import { init, initFn } from '../utils/Engine';
-import { createGround, createCan, createHouse } from '../utils/CustomeFn-9-23';
-import { createParentAndChild } from '../utils/ParentAndChild';
-import { createScene } from '../utils/ParentAndPivot';
+// import { createGround, createCan, createHouse } from '../utils/CustomeFn-9-23';
+// import { createParentAndChild } from '../utils/ParentAndChild';
+// import { createScene } from '../utils/ParentAndPivot';
+// import { createScene } from '../utils/SetPivot';
+import { createScene, createAnimationWheel } from '../utils/Car';
 onMounted(() => {
 	console.log('mounted');
-	initFn('renderCanvas', createScene);
+	initFn('renderCanvas', createAnimationWheel);
 	// init('renderCanvas', createParentAndChild);
 });
 </script>
