@@ -11,10 +11,16 @@ import { init, initFn } from '../utils/Engine';
 // import { createParentAndChild } from '../utils/ParentAndChild';
 // import { createScene } from '../utils/ParentAndPivot';
 // import { createScene } from '../utils/SetPivot';
-import { createScene, createAnimationWheel } from '../utils/Car';
+// import { createScene, createAnimationWheel } from '../utils/Car';
+// import { createScene } from '../utils/CarWithWheel'
+// import { createScene } from '../utils/MovingCar';
+// import { createScene } from '../utils/MovingCarInVallige';
+// import { createScene } from '../utils/chapter2/hill';
+// import { createScene } from '../utils/chapter2/Lathe';
+import { createScene } from '../utils/chapter2/light';
 onMounted(() => {
 	console.log('mounted');
-	initFn('renderCanvas', createAnimationWheel);
+	initFn('renderCanvas', createScene);
 	// init('renderCanvas', createParentAndChild);
 });
 </script>
