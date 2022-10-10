@@ -1,3 +1,4 @@
+/* eslint-disable  */
 import { Scene } from 'babylonjs'
 import * as BABYLON from 'babylonjs'
 

@@ -1,11 +1,10 @@
 <template>
-	<div>
-		<span>topo</span>
-	</div>
+  <div>
+    <span>topo</span>
+  </div>
 </template>
 
 <script lang="ts" setup>
-import { ref } from 'vue';
 </script>
 
 <style lang="scss" scoped></style>

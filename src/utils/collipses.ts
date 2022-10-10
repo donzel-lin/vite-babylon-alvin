@@ -1,3 +1,4 @@
+/* eslint-disable  */
 import { Scene, Mesh } from 'babylonjs'
 import * as BABYLON from 'babylonjs'
 export const createScene = function (engine: BABYLON.Engine, canvas: HTMLCanvasElement) {
@@ -83,13 +84,13 @@ export const createScene = function (engine: BABYLON.Engine, canvas: HTMLCanvasE
 
     // Dude
     BABYLON.SceneLoader.ImportMeshAsync("him", "/scenes/Dude/", "Dude.babylon", scene).then((result) => {
-        var dude = result.meshes[0];
+        var dude = result.meshes[0] as BABYLON.AbstractMesh;
         dude.scaling = new BABYLON.Vector3(0.008, 0.008, 0.008);
         
             
         dude.position = new BABYLON.Vector3(1.5, 0, -6.9);
         dude.rotate(BABYLON.Axis.Y, BABYLON.Tools.ToRadians(-90), BABYLON.Space.LOCAL);
-        const startRotation = dude.rotationQuaternion.clone();    
+        const startRotation = dude.rotationQuaternion!.clone();    
             
         scene.beginAnimation(result.skeletons[0], 0, 100, true, 1.0);
 
@@ -99,7 +100,7 @@ export const createScene = function (engine: BABYLON.Engine, canvas: HTMLCanvasE
 
         scene.onBeforeRenderObservable.add(() => {
             if (carReady) {
-                if (!dude.getChildren()[1].intersectsMesh(hitBox) && scene.getMeshByName("car").intersectsMesh(hitBox)) {
+                if (!(dude.getChildren()[1] as any).intersectsMesh(hitBox) && scene.getMeshByName("car")?.intersectsMesh(hitBox)) {
                     return;
                 }
                 

@@ -1,3 +1,4 @@
+/* eslint-disable  */
 import * as BABYLON from 'babylonjs'
 
 export const createScene = function (engine: BABYLON.Engine, canvas: HTMLCanvasElement) {

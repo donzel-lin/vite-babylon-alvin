@@ -12,12 +12,9 @@
     "esModuleInterop": true,
     "lib": ["ESNext", "DOM"],
     "skipLibCheck": true,
-    "types": [
-          "babylonjs",
-          "babylonjs-gui",
-          "babylonjs-materials"
-      ],
+    "typeRoots": ["node_modules/@types"],
+    "types": [],
   },
-  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"],
+  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue", ".eslintrc.cjs"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

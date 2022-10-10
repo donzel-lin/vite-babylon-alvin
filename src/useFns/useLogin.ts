@@ -1,21 +1,22 @@
-import { Router } from 'vue-router';
-import { useUserStore } from '../stores/userStore';
-export const useLogin = (router:Router) => {
-    return {
-        login: () => login(router),
-        logout: () => logout(router)
-    }
+import { Router } from 'vue-router'
+import { useUserStore } from '../stores/userStore'
+
+export const useLogin = (router: Router): any => {
+  return {
+    login: () => login(router),
+    logout: () => logout(router)
+  }
 }
 
-const login = (router: Router) => {
-    const user = useUserStore()
-    user.setUser('11111111111111')
-	router.push({
-		name: 'Home',
-	});
-};
+const login = (router: Router): void => {
+  const user = useUserStore()
+  user.setUser('token-token-token')
+  void router.push({
+    name: 'Home'
+  })
+}
 
-const logout = (router: Router) => {
-    const user = useUserStore()
-    user.setUser('')
+const logout = (router: Router): void => {
+  const user = useUserStore()
+  user.setUser('')
 }

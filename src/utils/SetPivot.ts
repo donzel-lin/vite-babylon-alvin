@@ -1,4 +1,4 @@
-
+/* eslint-disable  */
 import * as BABYLON from 'babylonjs'
 // y轴旋转
 export const  createScene1 = (engine: BABYLON.Engine, canvas: HTMLCanvasElement) => {

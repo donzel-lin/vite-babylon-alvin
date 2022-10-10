@@ -1,3 +1,4 @@
+/* eslint-disable  */
 // 父点和支点
 import { GroundMesh, Scene, Color4, Mesh, Vector3, Material,Color3, StandardMaterial, Texture} from "babylonjs"
 
