@@ -44,8 +44,10 @@
 		"vite": "^3.1.0",
 		"vue-tsc": "^0.40.4"
 	},
-	"hooks": {
-		"pre-commit": "lint-staged"
+	"husky": {
+		"hooks": {
+			"pre-commit": "lint-staged"
+		}
 	},
 	"lint-staged": {
 		"*.{ts,js,jsx,tsx,vue}": [
