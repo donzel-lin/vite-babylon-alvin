@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import * as BABYLON from 'babylonjs'
 import { Scene, Engine, Camera, Light } from 'babylonjs'
 
@@ -5,7 +6,7 @@ const createScene = function (engine: Engine, canvas: HTMLCanvasElement, cb: Fun
   const scene = new BABYLON.Scene(engine)
   const camera: Camera = new BABYLON.ArcRotateCamera('camera', -Math.PI / 2, Math.PI / 2.5, 15, new BABYLON.Vector3(0, 0, 0))
   camera.attachControl(canvas, true)
-  const light: Light = new BABYLON.HemisphericLight('light', new BABYLON.Vector3(1, 1, 0), scene)
+  // const light: Light = new BABYLON.HemisphericLight('light', new BABYLON.Vector3(1, 1, 0), scene)
   // 自己的代码
   cb(scene)
   return scene
