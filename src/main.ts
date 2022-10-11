@@ -13,7 +13,6 @@ import ElementPlus from 'element-plus'
 import Trim from './plugins/directives/Trim'
 // babylonjs需要的算法
 import earcut from 'earcut'
-const a = '11'
 const pinia = createPinia()
 window.earcut = earcut
 createApp(App)
