@@ -8,7 +8,7 @@
 		"build": "vue-tsc --noEmit && vite build",
 		"lint": "eslint src/**/*.{js,jsx,vue,ts,tsx} --fix",
 		"preview": "vite preview",
-		"prepare": "husky install"
+		"postinstall": "husky install"
 	},
 	"dependencies": {
 		"autoprefixer": "^10.4.12",
@@ -46,7 +46,8 @@
 	},
 	"lint-staged": {
 		"*.{ts,js,jsx,tsx,vue}": [
-			"yarn run lint"
+			"yarn run lint",
+			"git add"
 		]
 	}
 }
