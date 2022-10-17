@@ -1,16 +1,22 @@
 <template>
-  <div class="container mx-auto w-full h-full">
-    <header-page />
-    <div class="content flex">
-      <div class="side-bar h-full">
-        <side-menu />
+  <el-container class="mx-auto w-full h-full overflow-hidden">
+    <el-header>
+      <header-page />
+    </el-header>
+    <el-main class="p-0">
+      <div class="content flex h-full">
+        <div class="side-bar h-full">
+          <side-menu />
+        </div>
+        <div class="flex-1">
+          <empty-view />
+        </div>
       </div>
-      <div class="flex-1">
-        <empty-view />
-      </div>
-    </div>
-    <footer-page />
-  </div>
+    </el-main>
+    <el-footer>
+      <footer-page />
+    </el-footer>
+  </el-container>
 </template>
 
 <script lang="ts" setup>
@@ -21,7 +27,4 @@ import SideMenu from './SideMenu.vue'
 </script>
 
 <style lang="scss" scoped>
-.content {
-  height: calc(100% - 8rem);
-}
 </style>

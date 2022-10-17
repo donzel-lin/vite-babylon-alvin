@@ -1,26 +1,31 @@
 <template>
-  <div class="h-full">
+  <el-scrollbar class="h-full ">
     <p>Home</p>
     <el-button @click="logout">
       退出
     </el-button>
+    <drag-component>
+      <p>拖动</p>
+    </drag-component>
     <trim-input v-model:value="value" />
     <div class="w-full h-52 bg-blue-500 overflow-auto">
       <el-scrollbar>
         <div class="w-full h-96 bg-red-500 " />
+        <div class="w-full h-screen" />
         <div
           class="w-full h-96 target"
           id="target"
         >
-          <h1>哈哈哈</h1>
+          <h1>aaa</h1>
         </div>
       </el-scrollbar>
     </div>
-  </div>
+  </el-scrollbar>
 </template>
 
 <script lang="ts" setup>
 import TrimInput from '../components/TrimInput.vue'
+import DragComponent from '../components/DragComponent.vue'
 import { ref, onMounted } from 'vue'
 import { useIntersectionObserver } from '../useFns/useIntersection'
 import { useRouter } from 'vue-router'

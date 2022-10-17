@@ -32,6 +32,16 @@ const routes = [
         }
       },
       {
+        name: 'Form',
+        path: 'form',
+        component: async () => await import('../views/pages/FormValidate.vue'),
+        meta: {
+          id: 6,
+          parentId: 1,
+          requireAuth: true
+        }
+      },
+      {
         name: 'About',
         path: '/about',
         component: async () => await import('../views/About.vue'),

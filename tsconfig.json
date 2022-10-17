@@ -13,7 +13,7 @@
     "lib": ["ESNext", "DOM"],
     "skipLibCheck": true,
     "typeRoots": ["node_modules/@types"],
-    "types": [],
+    "types": ["vite/client"],
   },
   "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue", ".eslintrc.cjs"],
   "references": [{ "path": "./tsconfig.node.json" }]
