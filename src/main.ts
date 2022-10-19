@@ -11,6 +11,7 @@ import './router/permission'
 import ElementPlus from 'element-plus'
 
 import Trim from './plugins/directives/Trim'
+import Clickoutside from './plugins/directives/Clickoutside'
 // babylonjs需要的算法
 import earcut from 'earcut'
 const pinia = createPinia()
@@ -20,4 +21,5 @@ createApp(App)
   .use(router)
   .use(ElementPlus)
   .directive('trim', Trim)
+  .directive('clickOutside', Clickoutside)
   .mount('#app')

@@ -4,7 +4,8 @@
     id="drag1"
     class="drag-wrapper"
     :class="{
-      'is-moving pointer': isMoving
+      'is-moving pointer': isMoving,
+      'is-select': isFocus
     }"
     :style="dragStyle"
     draggable="true"
@@ -13,6 +14,7 @@
     @dragend="drop"
     @mousedown="selectCom"
     @mousewheel.prevent="mousewheel"
+    v-click-outside="blurEl"
   >
     <slot />
   </div>
@@ -23,10 +25,6 @@ import { computed } from 'vue'
 import { useDrag } from '../useFns/useDrag'
 import { useTransform } from '../useFns/useTransform'
 const { isMoving, dragStart, drag, dragPosition, drop } = useDrag()
-
-// 缩放功能
-const { isFocus, focusEl, scale } = useTransform('drag1')
-
 const dragStyle = computed(() => {
   return {
     left: `${dragPosition.x - dragPosition.offsetX}px`,
@@ -34,7 +32,8 @@ const dragStyle = computed(() => {
     transform: `scale(${scale.value})`
   }
 })
-
+// 缩放功能
+const { isFocus, focusEl, blurEl, scale } = useTransform('drag1')
 const selectCom = () => {
   focusEl()
 }
@@ -58,5 +57,9 @@ const mousewheel = (evt: WheelEvent) => {
     background-color: aqua;
     position: fixed;
     z-index: 500;
+    box-sizing: border-box;
+    &.is-select {
+      border: 2px dashed #eee;
+    }
 }
 </style>
