@@ -1,4 +1,4 @@
-import { ref, Ref } from 'vue'
+import { ref, Ref, computed, reactive } from 'vue'
 interface UsePositionRes {
   x: Ref<number>
   y: Ref<number>

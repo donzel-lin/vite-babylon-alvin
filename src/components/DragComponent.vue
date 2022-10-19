@@ -1,37 +1,53 @@
 
 <template>
   <div
+    id="drag1"
     class="drag-wrapper"
-    draggable
-    @drag="dragStart"
-    @drop="drop"
+    :class="{
+      'is-moving pointer': isMoving
+    }"
+    :style="dragStyle"
+    draggable="true"
+    @dragstart="dragStart"
+    @drag="drag"
+    @dragend="drop"
+    @mousedown="selectCom"
+    @mousewheel.prevent="mousewheel"
   >
     <slot />
   </div>
 </template>
 
 <script lang="ts" setup>
-// import { ref, computed } from 'vue'
-import { usePosition } from '../useFns/usePosition'
-const dragStart = (e:Event) => {
-  const evt = (e || window.event) as MouseEvent
-  const { x, y } = usePosition(evt.clientX, evt.clientY)
-  console.log(x.value, y.value)
+import { computed } from 'vue'
+import { useDrag } from '../useFns/useDrag'
+import { useTransform } from '../useFns/useTransform'
+const { isMoving, dragStart, drag, dragPosition, drop } = useDrag()
+
+// 缩放功能
+const { isFocus, focusEl, scale } = useTransform('drag1')
+
+const dragStyle = computed(() => {
+  return {
+    left: `${dragPosition.x - dragPosition.offsetX}px`,
+    top: `${dragPosition.y - dragPosition.offsetY}px`,
+    transform: `scale(${scale.value})`
+  }
+})
+
+const selectCom = () => {
+  focusEl()
 }
-// interface DragStyle {
-//   left: string
-//   top: string
-// }
-// const dragStyle: DragStyle = computed({
-//   get: () => {
-//     return {
-//       left: x.value + 'px',
-//       top: y.value + 'px'
-//     }
-//   }
-// })
-const drop = () => {
-  console.log('drop')
+
+const mousewheel = (evt: WheelEvent) => {
+  if (isFocus.value) {
+    const deltaY = evt.deltaY
+    const deltaGap = Number((deltaY / 200).toFixed(2))
+    scale.value += deltaGap
+    if (scale.value <= 1) {
+      scale.value = 1
+    }
+  }
 }
 </script>
 

@@ -1,4 +1,4 @@
-import axios from 'axios'
+import axios, { AxiosRequestConfig } from 'axios'
 
 const request = axios.create({
   withCredentials: true,
@@ -19,4 +19,7 @@ request.interceptors.response.use(response => {
   return response
 }, errorHandle)
 
-export default axios
+// export default request
+export default async (config: AxiosRequestConfig<any>) => {
+  return await request(config).then(res => res.data)
+}

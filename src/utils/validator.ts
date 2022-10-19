@@ -1,11 +1,11 @@
 import { isZero, isEmptyString } from './tools/tools'
 
-interface ErrorType {
+export interface ErrorType {
   message: string | null
   type: string
 }
 
-type ValidateFn = <T>(arg: T) => ErrorType
+export type ValidateFn = <T>(arg: T) => ErrorType
 
 const errorMessage = {
   isRequired: '不能为空'
