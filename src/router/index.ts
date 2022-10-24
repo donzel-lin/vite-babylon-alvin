@@ -1,6 +1,6 @@
-import { createRouter, createWebHashHistory } from 'vue-router'
+import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router'
 
-const routes = [
+const routes: RouteRecordRaw[] = [
   {
     name: 'Admin',
     path: '/',
@@ -49,6 +49,14 @@ const routes = [
           id: 4,
           parentId: 1,
           requireAuth: true
+        }
+      },
+      {
+        name: 'test',
+        path: '/test',
+        component: import('../views/pages/Test.vue'),
+        meta: {
+          id: '23'
         }
       }
     ]

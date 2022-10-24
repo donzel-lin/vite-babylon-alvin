@@ -1,4 +1,4 @@
-import { ref, computed, reactive } from 'vue'
+import { ref, reactive } from 'vue'
 
 interface DragPosition {
   offsetX: number
