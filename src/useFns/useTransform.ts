@@ -1,4 +1,4 @@
-import { ref, watchEffect } from 'vue'
+import { ref, onMounted } from 'vue'
 export const useTransform = (selector: string) => {
   const targetEl = document.getElementById(selector)
   const scale = ref(1)
@@ -9,13 +9,6 @@ export const useTransform = (selector: string) => {
   const blurEl = () => {
     isFocus.value = false
   }
-  // watchEffect(isFocus, () => {
-  //   if (isFocus.value) {
-  //     targetEl
-  //   } else {
-
-  //   }
-  // })
   return {
     targetEl,
     isFocus,

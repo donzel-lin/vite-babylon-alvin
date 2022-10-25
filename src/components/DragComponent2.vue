@@ -4,6 +4,7 @@
     id="drag2"
     :style="dragStyle"
     @mousedown="selectCom"
+    @mouseup="endMove"
     @mousewheel.prevent="mousewheel"
     v-click-outside="blurEl"
   >
@@ -21,17 +22,20 @@
 <script lang="ts" setup>
 import { computed } from 'vue'
 import { useDrag2 } from '../useFns/useDrag2'
-import { useTransform } from '../useFns/useTransform'
-// 缩放功能
-const { isFocus, focusEl, blurEl, scale } = useTransform('drag2')
-// 元素中心点
-const { x, y, offsetSize } = useDrag2('drag2', scale)
-
+// 拖动功能
+const {
+  x, y, offsetSize,
+  focusEl, blurEl, scale,
+  addMousemoveEvent, removeMousemoveEvent,
+  mousewheel
+} = useDrag2('drag2')
+// 内层 样式
 const bodyStyle = computed(() => {
   return {
     transform: `scale(${scale.value})`
   }
 })
+// 最外层样式
 const dragStyle = computed(() => {
   // 找到中心点，然后 在计算 左上角的坐标
   const left = x.value - offsetSize.w * scale.value / 2
@@ -43,22 +47,16 @@ const dragStyle = computed(() => {
     height: offsetSize.h * scale.value + 'px'
   }
 })
-
-const selectCom = () => {
+// 选中目标
+const selectCom = (e: MouseEvent) => {
   focusEl()
+  addMousemoveEvent(e)
+}
+// 结束移动
+const endMove = () => {
+  removeMousemoveEvent()
 }
 
-const mousewheel = (evt: WheelEvent) => {
-  if (isFocus.value) {
-    const deltaY = evt.deltaY
-    const deltaGap = Number((deltaY / 200).toFixed(2))
-    scale.value += deltaGap
-    // 还需要处理 缩放后，位置问题
-    if (scale.value <= 1) {
-      scale.value = 1
-    }
-  }
-}
 </script>
 
 <style lang="scss" scoped>
