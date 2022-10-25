@@ -25,6 +25,7 @@ module.exports = {
     '@typescript-eslint/triple-slash-reference': [0, 'always'],
     'vue/multi-word-component-names': [0, 'always'],
     'no-unused-vars': 'off',
+    'no-debugger': 'off',
     '@typescript-eslint/no-unused-vars': 'warn',
     "@typescript-eslint/explicit-function-return-type":  [0, 'always'],
   }

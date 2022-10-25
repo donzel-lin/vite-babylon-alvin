@@ -3,7 +3,6 @@
     <ul>
       <li
         class="item relative"
-
         v-for="(item, index) in list"
         :key="item.id"
         :class="{

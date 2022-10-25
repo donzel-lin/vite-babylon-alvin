@@ -9,6 +9,7 @@ declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     CustomForm: typeof import('./src/components/FormComponents/CustomForm.vue')['default']
     DragComponent: typeof import('./src/components/DragComponent.vue')['default']
+    DragComponent2: typeof import('./src/components/DragComponent2.vue')['default']
     ElButton: typeof import('element-plus/es')['ElButton']
     ElContainer: typeof import('element-plus/es')['ElContainer']
     ElFooter: typeof import('element-plus/es')['ElFooter']

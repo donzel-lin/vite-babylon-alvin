@@ -5,8 +5,11 @@
       退出
     </el-button>
     <drag-component>
-      <p>拖动</p>
+      <p>1</p>
     </drag-component>
+    <drag-component2>
+      <p>2</p>
+    </drag-component2>
     <trim-input v-model:value="value" />
     <div class="w-full h-52 bg-blue-500 overflow-auto">
       <el-scrollbar>
@@ -26,6 +29,7 @@
 <script lang="ts" setup>
 import TrimInput from '../components/TrimInput.vue'
 import DragComponent from '../components/DragComponent.vue'
+import DragComponent2 from '../components/DragComponent2.vue'
 import { ref, onMounted } from 'vue'
 import { useIntersectionObserver } from '../useFns/useIntersection'
 import { useRouter } from 'vue-router'
