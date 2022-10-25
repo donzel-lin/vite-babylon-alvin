@@ -7,7 +7,12 @@
     <drag-component>
       <p>1</p>
     </drag-component>
-    <drag-component2>
+    <drag-component2
+      @select="selectEl"
+      @blur="blur"
+      @move-end="moveEnd"
+      @resize="resize"
+    >
       <p>2</p>
     </drag-component2>
     <trim-input v-model:value="value" />
@@ -50,6 +55,21 @@ onMounted(() => {
   intersectionObserver.observe(el!)
 })
 
+const selectEl = (e:MouseEvent, x:number, y:number) => {
+  console.log('selectEl', e, x, y)
+}
+const blur = (e:MouseEvent, x:number, y:number) => {
+  console.log('blur', e, x, y)
+}
+const move = (x:number, y:number) => {
+  console.log(x, y)
+}
+const moveEnd = (e:MouseEvent, x:number, y:number) => {
+  console.log('moveEnd', e, x, y)
+}
+const resize = (e:MouseEvent, scale:number) => {
+  console.log('resize', e, scale)
+}
 </script>
 
 <style lang="scss" scoped></style>

@@ -52,11 +52,19 @@ const routes: RouteRecordRaw[] = [
         }
       },
       {
-        name: 'test',
+        name: 'Test',
         path: '/test',
         component: import('../views/pages/Test.vue'),
         meta: {
           id: '23'
+        }
+      },
+      {
+        name: 'Echart',
+        path: '/chart',
+        component: import('../views/pages/Echarts.vue'),
+        meta: {
+          id: '24'
         }
       }
     ]

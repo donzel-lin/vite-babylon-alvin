@@ -5,13 +5,12 @@ export const useDrag2 = (selector: string) => {
   onMounted(() => {
     el = document.getElementById(selector)
   })
-
   const scale = ref(1)
   const isFocus = ref(false)
-  const focusEl = () => {
+  const focusEl = (e: MouseEvent) => {
     isFocus.value = true
   }
-  const blurEl = () => {
+  const blurEl = (e: MouseEvent) => {
     isFocus.value = false
   }
 
@@ -24,6 +23,7 @@ export const useDrag2 = (selector: string) => {
     offsetX: 0,
     offsetY: 0
   })
+  // 移动鼠标
   const updatePosition = (e: MouseEvent) => {
     // 给中心点坐标吧
     x.value = e.pageX - offsetSize.offsetX + offsetSize.w * scale.value / 2

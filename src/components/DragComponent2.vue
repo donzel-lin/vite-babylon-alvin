@@ -5,8 +5,8 @@
     :style="dragStyle"
     @mousedown="selectCom"
     @mouseup="endMove"
-    @mousewheel.prevent="mousewheel"
-    v-click-outside="blurEl"
+    @mousewheel.prevent="onmousewheel"
+    v-click-outside="unSelectCom"
   >
     <div
       class="wrapper"
@@ -20,7 +20,7 @@
 </template>
 
 <script lang="ts" setup>
-import { computed } from 'vue'
+import { computed, defineEmits } from 'vue'
 import { useDrag2 } from '../useFns/useDrag2'
 // 拖动功能
 const {
@@ -29,6 +29,8 @@ const {
   addMousemoveEvent, removeMousemoveEvent,
   mousewheel
 } = useDrag2('drag2')
+
+const emit = defineEmits(['select', 'blur', 'move', 'moveEnd', 'resize'])
 // 内层 样式
 const bodyStyle = computed(() => {
   return {
@@ -49,12 +51,23 @@ const dragStyle = computed(() => {
 })
 // 选中目标
 const selectCom = (e: MouseEvent) => {
-  focusEl()
+  focusEl(e)
   addMousemoveEvent(e)
+  emit('select', e, x.value, y.value)
+}
+const unSelectCom = (e: MouseEvent) => {
+  blurEl(e)
+  emit('blur', e, x.value, y.value)
+  emit('moveEnd', e, x.value, y.value)
 }
 // 结束移动
 const endMove = () => {
   removeMousemoveEvent()
+}
+
+const onmousewheel = (e: WheelEvent) => {
+  mousewheel(e)
+  emit('resize', e, scale.value)
 }
 
 </script>
