@@ -1,4 +1,4 @@
-import { isZero, isEmptyString } from './tools/tools'
+import { isEmptyString } from './tools/tools'
 
 export interface ErrorType {
   message: string | null
