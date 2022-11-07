@@ -19,7 +19,25 @@
             v-for="submenu in menu.children"
             :key="submenu.meta.id"
           >
+            <template v-if="submenu.children?.length">
+              <el-sub-menu :index="submenu.name">
+                <template #title>
+                  <span>{{ submenu.name }}</span>
+                </template>
+                <template
+                  v-for="childMenu in submenu.children"
+                  :key="childMenu.meta.id"
+                >
+                  <el-menu-item
+                    :index="childMenu.name"
+                  >
+                    {{ childMenu.name }}
+                  </el-menu-item>
+                </template>
+              </el-sub-menu>
+            </template>
             <el-menu-item
+              v-else
               :index="submenu.name"
             >
               {{
