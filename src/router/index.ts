@@ -1,5 +1,5 @@
 import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router'
-
+import { ProductRoute } from './products/index'
 const routes: RouteRecordRaw[] = [
   {
     name: 'Admin',
@@ -66,7 +66,8 @@ const routes: RouteRecordRaw[] = [
         meta: {
           id: '24'
         }
-      }
+      },
+      ProductRoute
     ]
   },
   {
