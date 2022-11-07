@@ -20,6 +20,8 @@ request.interceptors.response.use(response => {
 }, errorHandle)
 
 // export default request
-export default async (config: AxiosRequestConfig<any>) => {
-  return await request(config).then(res => res.data)
+export default <T = any> (config: AxiosRequestConfig<any>) => {
+  return request(config).then(res => {
+    return (res.data || res.data.data) as T
+  })
 }

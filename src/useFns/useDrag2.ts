@@ -1,6 +1,6 @@
 import { ref, reactive, onMounted } from 'vue'
 
-export const useDrag2 = (selector: string) => {
+export const useDrag2 = (selector: string, left: number, top: number) => {
   let el: HTMLElement | null
   onMounted(() => {
     el = document.getElementById(selector)
@@ -15,8 +15,8 @@ export const useDrag2 = (selector: string) => {
   }
 
   // 鼠标位置
-  const x = ref(100)
-  const y = ref(100)
+  const x = ref(left)
+  const y = ref(top)
   const offsetSize = reactive({
     w: 200,
     h: 200,

@@ -4,15 +4,7 @@
     <el-button @click="logout">
       退出
     </el-button>
-    <drag-component>
-      <p>1</p>
-    </drag-component>
-    <drag-component2
-      @select="selectEl"
-      @blur="blur"
-      @move-end="moveEnd"
-      @resize="resize"
-    >
+    <drag-component2>
       <p>2</p>
     </drag-component2>
     <trim-input v-model:value="value" />
@@ -33,7 +25,6 @@
 
 <script lang="ts" setup>
 import TrimInput from '../components/TrimInput.vue'
-import DragComponent from '../components/DragComponent.vue'
 import DragComponent2 from '../components/DragComponent2.vue'
 import { ref, onMounted } from 'vue'
 import { useIntersectionObserver } from '../useFns/useIntersection'
@@ -55,21 +46,21 @@ onMounted(() => {
   intersectionObserver.observe(el!)
 })
 
-const selectEl = (e:MouseEvent, x:number, y:number) => {
-  console.log('selectEl', e, x, y)
-}
-const blur = (e:MouseEvent, x:number, y:number) => {
-  console.log('blur', e, x, y)
-}
-const move = (x:number, y:number) => {
-  console.log(x, y)
-}
-const moveEnd = (e:MouseEvent, x:number, y:number) => {
-  console.log('moveEnd', e, x, y)
-}
-const resize = (e:MouseEvent, scale:number) => {
-  console.log('resize', e, scale)
-}
+// const selectEl = (e:MouseEvent, x:number, y:number) => {
+//   console.log('selectEl', e, x, y)
+// }
+// const blur = (e:MouseEvent, x:number, y:number) => {
+//   console.log('blur', e, x, y)
+// }
+// const move = (x:number, y:number) => {
+//   console.log(x, y)
+// }
+// const moveEnd = (e:MouseEvent, x:number, y:number) => {
+//   console.log('moveEnd', e, x, y)
+// }
+// const resize = (e:MouseEvent, scale:number) => {
+//   console.log('resize', e, scale)
+// }
 </script>
 
 <style lang="scss" scoped></style>

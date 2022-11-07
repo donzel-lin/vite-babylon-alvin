@@ -25,10 +25,10 @@ import { useDrag2 } from '../useFns/useDrag2'
 // 拖动功能
 const {
   x, y, offsetSize,
-  focusEl, blurEl, scale,
+  focusEl, blurEl, scale, isFocus,
   addMousemoveEvent, removeMousemoveEvent,
   mousewheel
-} = useDrag2('drag2')
+} = useDrag2('drag2', 320, 260)
 
 const emit = defineEmits(['select', 'blur', 'move', 'moveEnd', 'resize'])
 // 内层 样式

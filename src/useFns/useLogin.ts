@@ -1,6 +1,5 @@
 import { Router } from 'vue-router'
 import { useUserStore } from '../stores/userStore'
-import { login } from '../api/user/user'
 export const useLogin = (router: Router): any => {
   return {
     login: async () => await loginFn(router),

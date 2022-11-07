@@ -1,12 +1,7 @@
+import { ILoginInfo } from './../types/user'
 import request from '../request'
 
-interface responseData<T> {
-  status: number
-  msg: string | null
-  data: T
-}
-
-export const login = async () => {
+export const login = () => {
 //   return await request({
 //     method: 'post',
 //     url: '/api/login'
@@ -16,7 +11,7 @@ export const login = async () => {
 //   }>>('/api/login').then(res => {
 //     return res.data
 //   })
-  return await request({
+  return request<ILoginInfo>({
     method: 'post',
     url: '/api/login'
   })
