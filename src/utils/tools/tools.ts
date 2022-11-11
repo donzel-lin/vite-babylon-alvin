@@ -18,3 +18,7 @@ export const isTrue = (value: any): boolean => {
     return false
   }
 }
+// 首字母大写
+export const firstCharUpper = (str: string) => {
+  return str.charAt(0).toUpperCase() + str.slice(1)
+}

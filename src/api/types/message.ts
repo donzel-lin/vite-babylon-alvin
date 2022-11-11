@@ -3,4 +3,7 @@ export interface IMessageRow {
   content: string
   avtar: string
   id?: string
+  isHost?: boolean
+  time?: string
+  type: 'text'
 }
