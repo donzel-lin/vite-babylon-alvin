@@ -2,6 +2,7 @@ import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router'
 import { ProductRoute } from './products/index'
 import { StyleRoute } from './styles/index'
 import { SocketRoute } from './socket/index'
+import { TestRoute } from './test/index'
 const routes: RouteRecordRaw[] = [
   {
     name: 'Admin',
@@ -71,7 +72,8 @@ const routes: RouteRecordRaw[] = [
       },
       ProductRoute,
       StyleRoute,
-      SocketRoute
+      SocketRoute,
+      TestRoute
     ]
   },
   {

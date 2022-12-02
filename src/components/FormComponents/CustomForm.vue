@@ -5,13 +5,10 @@
 </template>
 
 <script lang="ts" setup>
-
-interface ruleFn {
-    (value: string): boolean
-}
+import { formRule1 } from '../../api/types/form'
 interface FormProps {
-    model: [],
-    rule: ruleFn[]
+    model: { name: string, phone: string},
+    rule: formRule1
 }
 
 const props = defineProps<FormProps>()

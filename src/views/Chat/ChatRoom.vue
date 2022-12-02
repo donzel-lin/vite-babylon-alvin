@@ -47,10 +47,10 @@
 <script lang="ts" setup>
 import ChatRow from './ChatRow.vue'
 import Picker from './Picker.vue'
-
-import { useIo } from '../../useFns/useIo'
-import { computed, ref } from 'vue'
-
+import { onMounted, onBeforeUnmount, computed, ref } from 'vue'
+import { useIo, ioListener } from '../../useFns/useIo'
+import { listenerFn } from '../../utils/EventListener'
+import { IMessageRow } from '../../api/types/message'
 const inputValue = ref('')
 const { sendMsg, msgs } = useIo('ws://172.19.103.145:3000/')
 const send = () => {
@@ -81,6 +81,22 @@ const closeEmoji = () => {
 const selectEmoji = (emoji: string) => {
   inputValue.value += emoji
 }
+// 自定义事件
+const handleMsg = (msg: IMessageRow) => {
+  console.log(msg, 'msg')
+}
+onMounted(() => {
+  ioListener.on({
+    type: 'answer',
+    fn: handleMsg as listenerFn
+  })
+})
+onBeforeUnmount(() => {
+  ioListener.off({
+    type: 'answer',
+    fn: handleMsg as listenerFn
+  })
+})
 </script>
 
 <style lang="scss" scoped>

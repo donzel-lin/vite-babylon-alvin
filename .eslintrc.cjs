@@ -29,6 +29,7 @@ module.exports = {
     '@typescript-eslint/no-unused-vars': 'warn',
     "@typescript-eslint/explicit-function-return-type":  [0, 'always'],
     "@typescript-eslint/promise-function-async": "off",
-    "@typescript-eslint/strict-boolean-expressions": "off"
+    "@typescript-eslint/strict-boolean-expressions": "off",
+    "@typescript-eslint/restrict-plus-operands": "off"
   }
 }

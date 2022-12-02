@@ -1,20 +1,9 @@
 <template>
   <div class="w-full h-full pl-6">
     <el-scrollbar class="form w-50">
-      <!-- <el-form
-        label="left"
-        label-width="100px"
-      >
-        <el-form-item label="name">
-          <el-input v-model="form.name" />
-        </el-form-item>
-        <el-form-item label="phone">
-          <el-input v-model="form.phone" />
-        </el-form-item>
-      </el-form> -->
       <custom-form
         :model="form"
-        :rules="rules"
+        :rule="rules"
       >
         <form-item label="name">
           <input-with-error
@@ -27,6 +16,7 @@
 </template>
 
 <script lang="ts" setup>
+import { formRule1 } from '../../api/types/form'
 import { reactive } from 'vue'
 import CustomForm from '../../components/FormComponents/CustomForm.vue'
 import FormItem from '../../components/FormComponents/FormItem.vue'
@@ -35,10 +25,11 @@ const form = reactive({
   name: '',
   phone: ''
 })
-const rules = reactive({
+const rule: formRule1 = {
   name: [],
   phone: []
-})
+}
+const rules = reactive(rule)
 </script>
 
 <style lang="scss" scoped>

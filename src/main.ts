@@ -15,6 +15,7 @@ import Trim from './plugins/directives/Trim'
 import Clickoutside from './plugins/directives/Clickoutside'
 // babylonjs需要的算法
 import earcut from 'earcut'
+
 const pinia = createPinia()
 window.earcut = earcut
 createApp(App)
