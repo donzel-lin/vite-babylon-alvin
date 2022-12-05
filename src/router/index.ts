@@ -57,7 +57,7 @@ const routes: RouteRecordRaw[] = [
       {
         name: 'Test',
         path: '/test',
-        component: import('../views/pages/Test.vue'),
+        component: async () => await import('../views/pages/Test.vue'),
         meta: {
           id: '23'
         }
@@ -65,7 +65,7 @@ const routes: RouteRecordRaw[] = [
       {
         name: 'Echart',
         path: '/chart',
-        component: import('../views/pages/Echarts.vue'),
+        component: async () => await import('../views/pages/Echarts.vue'),
         meta: {
           id: '24'
         }

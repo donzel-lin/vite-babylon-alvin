@@ -14,6 +14,10 @@
     "skipLibCheck": true,
     "typeRoots": ["node_modules/@types"],
     "types": ["vite/client"],
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"]
+    }
   },
   "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue", ".eslintrc.cjs"],
   "references": [{ "path": "./tsconfig.node.json" }]
