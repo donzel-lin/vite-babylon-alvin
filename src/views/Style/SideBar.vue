@@ -10,9 +10,8 @@
 </template>
 
 <script lang="ts" setup>
-import { ref } from 'vue'
-const dragStart = (e) => {
-  e.dataTransfer.setData('type', 'img')
+const dragStart = (e: DragEvent) => {
+  e.dataTransfer?.setData('type', 'img')
 }
 </script>
 

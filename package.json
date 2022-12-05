@@ -5,7 +5,7 @@
 	"type": "module",
 	"scripts": {
 		"dev": "vite --host",
-		"build": "vue-tsc --noEmit && vite build",
+		"build": "vite build",
 		"lint": "eslint src/**/*.{js,jsx,vue,ts,tsx} --fix",
 		"preview": "vite preview",
 		"postinstall": "husky install"

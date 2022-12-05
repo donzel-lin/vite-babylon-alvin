@@ -23,7 +23,6 @@ declare module '@vue/runtime-core' {
     ElScrollbar: typeof import('element-plus/es')['ElScrollbar']
     ElSelect: typeof import('element-plus/es')['ElSelect']
     ElSubMenu: typeof import('element-plus/es')['ElSubMenu']
-    ElUpload: typeof import('element-plus/es')['ElUpload']
     FormItem: typeof import('./src/components/FormComponents/FormItem.vue')['default']
     HelloWorld: typeof import('./src/components/HelloWorld.vue')['default']
     InputWithError: typeof import('./src/components/FormComponents/InputWithError.vue')['default']

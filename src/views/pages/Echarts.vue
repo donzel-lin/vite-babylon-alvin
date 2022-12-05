@@ -84,7 +84,6 @@ const initChart = () => {
       }
     ]
   }
-
   option && myChart?.setOption(option)
 }
 

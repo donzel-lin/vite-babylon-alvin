@@ -11,7 +11,6 @@
 </template>
 
 <script lang="ts" setup>
-import { ref } from 'vue'
 const getCode = () => {
   const url = encodeURIComponent('https://haibao88.com/#/home')
   // const url = encodeURIComponent('http://127.0.0.1:5173/#/product/product-list')

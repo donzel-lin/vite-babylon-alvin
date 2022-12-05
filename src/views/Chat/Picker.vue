@@ -13,8 +13,7 @@ import { ref, computed } from 'vue'
 
 import data from 'emoji-mart-vue-fast/data/all.json'
 import 'emoji-mart-vue-fast/css/emoji-mart.css'
-import { Picker, EmojiIndex } from 'emoji-mart-vue-fast/src/index'
-
+import { Picker, EmojiIndex } from 'emoji-mart-vue-fast'
 const emojiIndex = new EmojiIndex(data)
 const emojisOutput = ref('')
 
