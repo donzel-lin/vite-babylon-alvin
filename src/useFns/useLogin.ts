@@ -12,8 +12,10 @@ const loginFn = async (router: Router): Promise<void> => {
   // console.log(res, 'res')
   const user = useUserStore()
   user.setUser('token-token-token')
-  void router.push({
+  router.push({
     name: 'Home'
+  }).catch(err => {
+    console.log(err, 'err')
   })
 }
 
